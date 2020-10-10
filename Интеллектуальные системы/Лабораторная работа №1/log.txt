@@ -1,0 +1,43 @@
+sudo docker pull postgres
+sudo docker run -e POSTGRES_PASSWORD=root -p 5432:5432 postgres
+
+sudo docker save -o egaisexchangedb.tar postgres
+
+sudo docker exec -it 29c69a93e6b psql -U postgres -d egaisExchange --command="select * from exc.utm"
+
+
+
+CMD psql -U postgres -d egaisExchange --command="select * from pg_catalog.pg_am"
+
+CMD psql -U postgres -h localhost d postgres /home/db.sql
+
+psql -U postgres -d postgres -f /home/db.sql
+
+\connect egaisExchange
+
+
+docker-entrypoint-initdb.d
+sudo docker build . --tag lab2db
+
+docker exec -it b35c4206b090 /bin/bash/
+
+CMD psql -U postgres -f /home/db.sql
+CMD psql -U postgres -f /home/schema.sql
+CMD psql -U postgres -f /home/ddl.sql
+CMD psql -U postgres -f /home/dml.sql
+
+
+
+ENV pgsql -U postgres -f /home/schema.sql
+ENV pgsql -U postgres -f /home/ddl.sql
+ENV pgsql -U postgres -f /home/dml.sql
+
+psql -U postgres -d postgres -f /home/db.sql
+psql -U postgres -d egaisexchange -f /home/schema.sql
+psql -U postgres -d egaisexchange -f /home/ddl.sql
+psql -U postgres -d egaisexchange -f /home/dml.sql
+
+docker save egaisexchange > test.tar
+
+chmod -R 777 /var/www/domen.name/user_doc
+
